@@ -30,6 +30,12 @@ optimizer = optim.Adam(model.parameters(), lr=0.001)  # 最適化アルゴリズ
 
 # 4. モデルの訓練
 num_epochs = 10  # エポック数
+for inputs, labels in train_loader:
+    inputs, labels = inputs.to(device), labels.to(device)
+    outputs = model(inputs)
+    print(f"Output shape: {outputs.shape}")
+    break  # 最初のバッチだけ確認
+
 for epoch in range(num_epochs):
     running_loss = 0.0
     for inputs, labels in train_loader:
