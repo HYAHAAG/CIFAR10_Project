@@ -20,7 +20,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = SimpleCNN().to(device)
 
 # モデルを評価モードに設定
-model.load_state_dict(torch.load("E:/CIFAR10_Project/cifar10_model.pth"))
+model.load_state_dict(torch.load("E:/CIFAR10_Project/cifar10_model.pth", weights_only=True))
 model.eval()
 
 # 3. モデルの評価
